@@ -16,17 +16,23 @@ export default React.createClass({
     this.sender = new Sender(params);
     this.listener = new Listener(params);
     this.listener.on('message', (message) => {
-      this.setState({
-        messages: this.state.messages.concat([{ message: message, sent: false }])
-      });
+      if (!this.state.messages.filter(m => m.message === message && m.sent === true).length) {
+        this.setState({
+          messages: this.state.messages.concat([{ message: message, sent: false }])
+        });
+      }
     });
     this.listener.start();
   },
 
   handleFormSubmit (event) {
     event.preventDefault();
-    this.sender.send(this.state.inputValue);
-    this.setState({ inputValue: '' });
+    var message = this.state.inputValue;
+    this.sender.send(message);
+    this.setState({
+      inputValue: '',
+      messages: this.state.messages.concat([{ message: message, sent: true }])
+    });
   },
 
   handleInputChange (event) {

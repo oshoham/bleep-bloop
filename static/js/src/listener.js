@@ -41,7 +41,8 @@ export default class Listener {
   }
 
   start () {
-    getUserMedia({ audio: true })
+    navigator.mediaDevices.getUserMedia = getUserMedia;
+    navigator.mediaDevices.getUserMedia({ audio: true })
       .then((stream) => {
         this.microphone = this.audioContext.createMediaStreamSource(stream);
         this.analyser = this.audioContext.createAnalyser();
