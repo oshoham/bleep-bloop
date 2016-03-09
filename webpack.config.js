@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 
-var baseDir = __dirname;
+var baseDir = __dirname + '/static/js';
 
 module.exports = {
   context: baseDir,

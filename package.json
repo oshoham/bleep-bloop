@@ -1,25 +1,24 @@
 {
   "name": "bleep-bloop",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple chat app that uses the Web Audio API to communicate text via high-frequency audio.",
   "main": "index.js",
-  "devDependencies": {
+  "dependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.3",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
+    "classnames": "^2.2.3",
     "eslint-plugin-react": "^4.2.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "webpack": "^2.1.0-beta.2"
   },
   "scripts": {
+    "postinstall": "node_modules/webpack/bin/webpack.js",
     "webpack": "node_modules/webpack/bin/webpack.js --watch"
   },
   "author": "Oren Shoham <oren.avraham.shoham@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "classnames": "^2.2.3",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7"
-  }
+  "license": "ISC"
 }
