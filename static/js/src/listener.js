@@ -38,10 +38,18 @@ export default class Listener {
     this.callbacks = {
       onMessage: Function.prototype
     };
+
+    // getUserMedia shenanigans
+    if (!navigator.mediaDevices) {
+      navigator.mediaDevices = {};
+    }
+
+    if (!navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia = getUserMedia;
+    }
   }
 
   start () {
-    navigator.mediaDevices.getUserMedia = getUserMedia;
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then((stream) => {
         this.microphone = this.audioContext.createMediaStreamSource(stream);
@@ -63,7 +71,8 @@ export default class Listener {
         this.isListening = true;
 
         this.loop = requestAnimationFrame(this.listen.bind(this));
-      });
+      })
+      .catch(err => console.log(err));
   }
 
   stop () {

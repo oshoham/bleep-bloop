@@ -1,10 +1,8 @@
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 
 
-var promisifiedOldGUM = function (constraints) {
-  var getUserMedia = (navigator.getUserMedia ||
-      navigator.webkitGetUserMedia ||
-      navigator.mozGetUserMedia);
+const getUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || function (constraints) {
+  var getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
 
   if (!getUserMedia) {
     return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
@@ -14,8 +12,6 @@ var promisifiedOldGUM = function (constraints) {
     getUserMedia.call(navigator, constraints, resolve, reject);
   });
 };
-
-const getUserMedia = navigator.mediaDevices.getUserMedia || promisifiedOldGUM;
 
 
 var raf = window.requestAnimationFrame;
