@@ -1,6 +1,6 @@
 # Bleep Bloop
 
-This is a chat app that I made as an experiment to see whether you could send and receive text between two computers using sound.
+This is a chat app that I made as an experiment to see whether you could send and receive text between two computers using sound. The chat was implemented using React, and the signal processing was done via the Web Audio API.
 
 ## How to Use
 
