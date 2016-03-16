@@ -17,4 +17,4 @@ Doesn't work in Safari, or really any browsers other than Chrome and FireFox.
 
 Probably won't work on most smartphones.
 
-The original goal for this project was to use ultrasonic sound, but so far I haven't been able to find a device with speakers capable of emitting frequencies that high. If you have one and you can get this to work on it, let me know).
+The original goal for this project was to use ultrasonic sound, but so far I haven't been able to find a device with speakers capable of emitting frequencies that high. If you have one and you can get this to work on it, let me know.
